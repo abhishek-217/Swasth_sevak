@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Appointment - Apehoses</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Apehoses</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Back to Services</a></li>
+        </ul>
+    </nav>
+
+    <div class="appointment-container">
+        <h1>Book an Appointment</h1>
+        <form id="appointmentForm">
+            <div class="form-group">
+                <label>Select Doctor</label>
+                <select id="doctorSelect" required>
+                    <!-- Doctors will load here via JavaScript -->
+                    <option value="">Loading doctors...</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Date</label>
+                <input type="date" id="appointmentDate" required>
+            </div>
+            <div class="form-group">
+                <label>Time</label>
+                <input type="time" id="appointmentTime" required>
+            </div>
+            <button type="submit" class="cta-button">Confirm Booking</button>
+        </form>
+    </div>
+
+    <script>
+        // Load doctors into dropdown
+        async function loadDoctors() {
+            try {
+                const response = await fetch("http://localhost:4000/doctors");
+                const doctors = await response.json();
+                
+                const select = document.getElementById("doctorSelect");
+                select.innerHTML = doctors.map(doctor => 
+                    `<option value="${doctor._id}">Dr. ${doctor.name} (${doctor.specialization})</option>`
+                ).join('');
+            } catch (error) {
+                console.error("Error loading doctors:", error);
+            }
+        }
+
+        // Handle form submission
+        document.getElementById("appointmentForm").addEventListener("submit", async (e) => {
+            e.preventDefault();
+            
+            const appointmentData = {
+                doctorId: document.getElementById("doctorSelect").value,
+                date: document.getElementById("appointmentDate").value,
+                time: document.getElementById("appointmentTime").value,
+                patientId: "temp-patient-id" // Replace with actual patient ID after login
+            };
+
+            try {
+                const response = await fetch("http://localhost:4000/appointments/book", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(appointmentData)
+                });
+                
+                const result = await response.json();
+                alert(`Appointment booked! ID: ${result._id}`);
+                window.location.href = "services.html";
+            } catch (error) {
+                alert("Booking failed: " + error.message);
+            }
+        });
+
+        // Initialize
+        loadDoctors();
+    </script>
+</body>
+</html>

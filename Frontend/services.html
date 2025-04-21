@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services - Apehoses</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Apehoses</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html" class="login-btn">Login</a></li>
+        </ul>
+    </nav>
+
+    <div class="services-container">
+        <div class="services-hero fade-in">
+            <h1>Our Healthcare Solutions</h1>
+            <p>Comprehensive digital solutions for modern healthcare management</p>
+            <!-- Added appointment booking button -->
+            <button class="cta-button" onclick="window.location.href='appointment.html'">
+                Book Appointment
+            </button>
+
+        <div class="services-content">
+            <div class="service-section fade-in delay-1">
+                <div class="section-icon">
+                    <i class="fas fa-file-medical"></i>
+                </div>
+                <h2>Electronic Health Records</h2>
+                <p>Streamline patient care with our comprehensive EHR system</p>
+                <div class="service-features">
+                    <div class="feature-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Secure Data Storage</h3>
+                        <p>HIPAA-compliant data protection</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-sync"></i>
+                        <h3>Real-time Updates</h3>
+                        <p>Instant access to patient records</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Analytics Dashboard</h3>
+                        <p>Comprehensive health insights</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-section fade-in delay-2">
+                <div class="section-icon">
+                    <i class="fas fa-hospital"></i>
+                </div>
+                <h2>Hospital Management</h2>
+                <p>End-to-end solution for efficient hospital operations</p>
+                <div class="service-features">
+                    <div class="feature-item">
+                        <i class="fas fa-user-plus"></i>
+                        <h3>Patient Registration</h3>
+                        <p>Streamlined admission process</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-calendar-check"></i>
+                        <h3>Appointment Scheduling</h3>
+                        <p>Efficient resource management</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                        <h3>Billing System</h3>
+                        <p>Automated financial management</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-section fade-in delay-3">
+                <div class="section-icon">
+                    <i class="fas fa-pills"></i>
+                </div>
+                <h2>Pharmacy Management</h2>
+                <p>Efficient system for medication and inventory management</p>
+                <div class="service-features">
+                    <div class="feature-item">
+                        <i class="fas fa-boxes"></i>
+                        <h3>Inventory Tracking</h3>
+                        <p>Real-time stock management</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-prescription-bottle-alt"></i>
+                        <h3>Prescription Management</h3>
+                        <p>Digital prescription handling</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <h3>Alert System</h3>
+                        <p>Automated medication alerts</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-section fade-in delay-4">
+                <div class="section-icon">
+                    <i class="fas fa-flask"></i>
+                </div>
+                <h2>Laboratory Management</h2>
+                <p>Advanced system for managing tests and results</p>
+                <div class="service-features">
+                    <div class="feature-item">
+                        <i class="fas fa-vial"></i>
+                        <h3>Test Management</h3>
+                        <p>Efficient test processing</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-chart-bar"></i>
+                        <h3>Result Analysis</h3>
+                        <p>Comprehensive data analysis</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-paper-plane"></i>
+                        <h3>Report Generation</h3>
+                        <p>Automated report creation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Apehoses. All rights reserved.</p>
+    </footer>
+
+    <!-- Simple script for backend connectivity -->
+    <script>
+        // Function to load doctors (for appointment booking)
+        async function loadDoctors() {
+            try {
+                const response = await fetch("http://localhost:4000/doctors");
+                if (!response.ok) throw new Error("Failed to fetch doctors");
+                const doctors = await response.json();
+                console.log("Available doctors:", doctors);
+                // You can use this data later to populate appointment options
+            } catch (error) {
+                console.error("Error loading doctors:", error);
+            }
+        }
+
+        // Load doctors when page opens
+        document.addEventListener("DOMContentLoaded", loadDoctors);
+    </script>
+</body>
+</html>

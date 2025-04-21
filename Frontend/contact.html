@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Apehoses</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Apehoses</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="login.html" class="login-btn">Login</a></li>
+        </ul>
+    </nav>
+
+    <div class="contact-container">
+        <div class="contact-hero fade-in">
+            <h1>Contact Apehoses</h1>
+            <p>Get in touch with us for any inquiries or support</p>
+        </div>
+
+        <div class="contact-content">
+            <div class="contact-info fade-in delay-1">
+                <div class="info-card">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email Us</h3>
+                    <p>kaushtubham.23bai10690@vitbhopal.ac.in</p>
+                    <a href="mailto:kaushtubham.23bai10690@vitbhopal.ac.in" class="contact-btn">Send Email</a>
+                </div>
+
+                <div class="info-card">
+                    <i class="fas fa-phone"></i>
+                    <h3>Call Us</h3>
+                    <p>7024536363</p>
+                    <a href="tel:7024536363" class="contact-btn">Call Now</a>
+                </div>
+
+                <div class="info-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Visit Us</h3>
+                    <p>VIT BHOPAL UNIVERSITY<br>KOTHRI KALAN<br>Bhopal, Madhya Pradesh</p>
+                    <a href="#" class="contact-btn">Get Directions</a>
+                </div>
+            </div>
+
+            <div class="contact-form fade-in delay-2">
+                <h2>Send us a Message</h2>
+                <form id="messageForm">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" placeholder="Enter subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" placeholder="Enter your message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="message-history fade-in delay-3">
+            <h2>Message History</h2>
+            <div class="history-container">
+                <div class="history-card">
+                    <div class="history-header">
+                        <span class="sender">John Doe</span>
+                        <span class="date">March 15, 2024</span>
+                    </div>
+                    <div class="history-subject">Inquiry about Hospital Management System</div>
+                    <div class="history-message">I would like to know more about your hospital management solutions and pricing plans.</div>
+                    <div class="history-status">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Sent</span>
+                    </div>
+                </div>
+
+                <div class="history-card">
+                    <div class="history-header">
+                        <span class="sender">Jane Smith</span>
+                        <span class="date">March 14, 2024</span>
+                    </div>
+                    <div class="history-subject">Technical Support Request</div>
+                    <div class="history-message">Need assistance with setting up the EHR system in our clinic.</div>
+                    <div class="history-status">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Sent</span>
+                    </div>
+                </div>
+
+                <div class="history-card">
+                    <div class="history-header">
+                        <span class="sender">Dr. Michael Brown</span>
+                        <span class="date">March 13, 2024</span>
+                    </div>
+                    <div class="history-subject">Partnership Inquiry</div>
+                    <div class="history-message">Interested in exploring partnership opportunities for our hospital network.</div>
+                    <div class="history-status">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Sent</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Apehoses. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('messageForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // Here you would typically handle the form submission
+            alert('Message sent successfully!');
+            this.reset();
+        });
+    </script>
+</body>
+</html> 
